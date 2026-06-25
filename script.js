@@ -1,3 +1,12 @@
+// Dynamic Mobile/Touch Device Detection (V7)
+const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+const isMobileUA = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+const isMobileSize = window.innerWidth <= 900;
+
+if (isTouchDevice || isMobileUA || isMobileSize) {
+    document.body.classList.add('is-mobile');
+}
+
 // View Switching / Navigation Logic
 const viewTriggers = document.querySelectorAll('.view-trigger');
 const backButtons = document.querySelectorAll('.back-btn');
@@ -100,6 +109,9 @@ let mouseY = 0;
 
 if (parallaxBg) {
     window.addEventListener('mousemove', (e) => {
+        // Skip heavy mouse transformations on mobile devices
+        if (document.body.classList.contains('is-mobile')) return;
+        
         const normX = (e.clientX / window.innerWidth) - 0.5;
         const normY = (e.clientY / window.innerHeight) - 0.5;
         
@@ -123,14 +135,16 @@ let lastY = 0;
 const activeSnowflakes = [];
 
 window.addEventListener('mousemove', (e) => {
+    // Skip cursor simulation on mobile/touch screens
+    if (document.body.classList.contains('is-mobile')) return;
+    
     cursorX = e.clientX;
     cursorY = e.clientY;
     
     // Position the plus cursor dot
     cursorDot.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0)`;
     
-    // Spawn snowflake trail particles (User request: don't overdo it!)
-    // We only spawn if the cursor has moved at least 25px AND 80ms has elapsed since last spawn
+    // Spawn snowflake trail particles (throttled for subtle visual weight)
     const now = Date.now();
     const dist = Math.hypot(cursorX - lastX, cursorY - lastY);
     
@@ -144,11 +158,13 @@ window.addEventListener('mousemove', (e) => {
 
 // Add active hover classes to cursor on interactive tags
 document.addEventListener('mouseover', (e) => {
+    if (document.body.classList.contains('is-mobile')) return;
     if (e.target.closest('a, button, input, select, textarea, .menu-item, .back-btn')) {
         cursorDot.classList.add('cursor-active');
     }
 });
 document.addEventListener('mouseout', (e) => {
+    if (document.body.classList.contains('is-mobile')) return;
     if (e.target.closest('a, button, input, select, textarea, .menu-item, .back-btn')) {
         cursorDot.classList.remove('cursor-active');
     }
@@ -158,7 +174,7 @@ document.addEventListener('mouseout', (e) => {
 function createSnowflake(x, y) {
     const flake = document.createElement('div');
     flake.className = 'snowflake-particle';
-    flake.textContent = '·'; // Clean tiny dot snowflake matching screenshot 3
+    flake.textContent = '·';
     
     const size = Math.random() * 3 + 5; // 5px to 8px size range
     flake.style.fontSize = `${size}px`;
@@ -181,6 +197,13 @@ function createSnowflake(x, y) {
 
 // Snowflake render updater loop
 function updateSnowflakes() {
+    // If mobile, clear any trailing snowflakes to conserve memory
+    if (document.body.classList.contains('is-mobile')) {
+        activeSnowflakes.forEach(flake => flake.el.remove());
+        activeSnowflakes.length = 0;
+        return;
+    }
+
     for (let i = activeSnowflakes.length - 1; i >= 0; i--) {
         const flake = activeSnowflakes[i];
         flake.y += flake.vy;

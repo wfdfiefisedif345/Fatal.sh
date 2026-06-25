@@ -722,27 +722,165 @@ body::before {
     border-color: #ffffff;
 }
 
-/* Responsiveness Configuration */
-@media (max-width: 900px) {
-    #landing-view {
-        padding: 0 6%;
+/* MOBILE AND TOUCH DEVICE OPTIMIZATION (V7) */
+
+/* 1. CSS Media query reset fallback for small screens and coarse pointer devices */
+@media (max-width: 900px), (pointer: coarse) {
+    html {
+        cursor: auto !important;
     }
     
+    a, button, input, select, textarea, .back-btn, .menu-item {
+        cursor: auto !important;
+    }
+    
+    a, button, .back-btn, .menu-item {
+        cursor: pointer !important;
+    }
+    
+    .custom-cursor-dot, .custom-cursor-ring, .snowflake-particle {
+        display: none !important;
+    }
+
+    #landing-view {
+        padding: 0 24px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .landing-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 15vh;
+        max-width: 100%;
+    }
+
     .landing-title {
-        font-size: 3.5rem;
+        font-size: 3.4rem;
+        margin-bottom: 30px;
+    }
+
+    .landing-menu, .members-menu {
+        align-items: center;
+    }
+
+    .landing-menu .menu-item, .members-menu .menu-item {
+        font-size: 1.05rem;
+        padding: 8px 0;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .landing-menu .menu-item:hover, .members-menu .menu-item:hover {
+        transform: scale(1.05); /* Soft click scaling on mobile */
+    }
+
+    .landing-menu .menu-item::before, .members-menu .menu-item::before {
+        display: none !important; /* Hide indicator chevrons on mobile to prevent alignment skew */
     }
 
     .parallax-bg-container {
         width: 100vw;
         height: 100vh;
-        opacity: 0.25;
+        opacity: 0.2; /* Subdued background for readability */
+        filter: blur(4px) brightness(0.6);
+        right: 0;
+        bottom: 0;
+    }
+
+    .character-bg-img {
+        object-position: right bottom; /* Ensure girl remains on screen */
     }
 
     .sub-page-view {
-        padding: 40px 20px;
+        padding: 40px 18px;
     }
 
     .sub-page-title {
         font-size: 2.2rem;
+        margin-bottom: 25px;
     }
+
+    .members-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .member-card {
+        padding: 24px 16px;
+    }
+
+    .member-avatar-container {
+        width: 80px;
+        height: 80px;
+    }
+
+    .member-name {
+        font-size: 1.25rem;
+    }
+
+    .bio-quote {
+        font-size: 0.78rem;
+        min-height: auto;
+    }
+
+    .purpose-text {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    .purpose-motto {
+        font-size: 1.15rem;
+        margin-top: 20px;
+    }
+
+    .archive-item {
+        padding: 16px;
+    }
+
+    .archive-item-title {
+        font-size: 1.1rem;
+    }
+
+    .archive-item-desc {
+        font-size: 0.82rem;
+    }
+
+    .sponsor-footer {
+        margin-top: 40px;
+        padding: 20px 0;
+    }
+
+    .sponsor-note {
+        font-size: 0.7rem;
+    }
+}
+
+/* 2. JavaScript detection class reset fallback */
+body.is-mobile {
+    cursor: auto !important;
+}
+
+body.is-mobile a,
+body.is-mobile button,
+body.is-mobile input,
+body.is-mobile select,
+body.is-mobile textarea,
+body.is-mobile .back-btn,
+body.is-mobile .menu-item {
+    cursor: auto !important;
+}
+
+body.is-mobile a,
+body.is-mobile button,
+body.is-mobile .back-btn,
+body.is-mobile .menu-item {
+    cursor: pointer !important;
+}
+
+body.is-mobile .custom-cursor-dot,
+body.is-mobile .custom-cursor-ring,
+body.is-mobile .snowflake-particle {
+    display: none !important;
 }
