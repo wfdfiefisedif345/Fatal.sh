@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fatal.sh | Anti-Extortion & Safety</title>
+    
+    <!-- Favicon setting (Fatal profile tab icon - fatal.jpg) -->
+    <link rel="icon" type="image/jpeg" href="fatal.jpg">
+    
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="Fatal.sh - Anti-extortion and child abuse prevention cyber security vigilante collective. Defenders of digital space.">
+    <meta name="keywords" content="Fatal.sh, fatal, anti-extortion, child abuse, cyber safety, hacker, bio page">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph for social sharing -->
+    <meta property="og:title" content="Fatal.sh | Bio">
+    <meta property="og:description" content="Anti-extortion and child abuse prevention cyber collective.">
+    <meta property="og:image" content="fatal.jpg">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=JetBrains+Mono:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Custom Cursor DOM Elements -->
+    <div id="custom-cursor-dot" class="custom-cursor-dot">+</div>
+    <div id="custom-cursor-ring" class="custom-cursor-ring"></div>
+
+    <!-- Background Music Element -->
+    <audio id="bg-music" src="music.mp3" loop></audio>
+
+    <!-- Character Background container for 3D Parallax & Sway -->
+    <div class="parallax-bg-container">
+        <img src="images/background.jpg" alt="Anime Character Background" class="character-bg-img">
+    </div>
+
+    <!-- MAIN LANDING VIEW -->
+    <div id="landing-view" class="view-panel active">
+        <div class="landing-content">
+            <!-- Large Serif Title matching OCTOBER -->
+            <h1 class="landing-title">FATAL.SH</h1>
+            
+            <!-- Monospace Navigation Menu -->
+            <nav class="landing-menu">
+                <a href="https://t.me/fatalannc" target="_blank" rel="noopener noreferrer" class="menu-item">
+                    <span class="menu-num">0/1</span>
+                    <span class="menu-label">Telegram</span>
+                </a>
+                <button class="menu-item view-trigger" data-target="view-members">
+                    <span class="menu-num">0/2</span>
+                    <span class="menu-label">Members</span>
+                </button>
+                <button class="menu-item view-trigger" data-target="view-purpose">
+                    <span class="menu-num">0/3</span>
+                    <span class="menu-label">Purpouse</span>
+                </button>
+                <button class="menu-item view-trigger" data-target="view-archive">
+                    <span class="menu-num">0/4</span>
+                    <span class="menu-label">Archive</span>
+                </button>
+            </nav>
+        </div>
+
+        <!-- Square music play button in bottom left -->
+        <div class="audio-control-container">
+            <button id="music-toggle-btn" class="music-square-btn" aria-label="Toggle Background Music">
+                <!-- Play state icon (music note) -->
+                <svg class="icon-music-note" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h6V3h-8z"/>
+                </svg>
+            </button>
+            
+            <!-- Sleek hover volume slider -->
+            <div class="audio-hover-slider">
+                <input type="range" id="volume-slider" class="volume-slider" min="0" max="1" step="0.05" value="0.08">
+            </div>
+        </div>
+    </div>
+
+    <!-- FULL PAGE VIEW: MEMBERS -->
+    <div id="view-members" class="view-panel sub-page-view">
+        <div class="sub-page-header">
+            <!-- Custom Back Button with dynamic return paths -->
+            <button id="members-back-btn" class="back-btn">&larr; [ back ]</button>
+        </div>
+        
+        <div class="sub-page-content">
+            <h2 class="sub-page-title">MEMBERS</h2>
+            
+            <!-- 1. Master List Menu (visible by default) -->
+            <div id="members-list-menu" class="members-menu active">
+                <button class="menu-item profile-trigger" data-profile="profile-catalouge">
+                    <span class="menu-num">0/1</span>
+                    <span class="menu-label">Catalogue</span>
+                </button>
+                <button class="menu-item profile-trigger" data-profile="profile-purple">
+                    <span class="menu-num">0/2</span>
+                    <span class="menu-label">Purple</span>
+                </button>
+            </div>
+
+            <!-- 2. Detailed Profile Panels (hidden by default) -->
+            <div id="members-profiles-container" class="profiles-container">
+                <!-- Catalogue Profile Detail -->
+                <div id="profile-catalouge" class="member-profile-detail">
+                    <div class="member-card">
+                        <div class="member-avatar-container">
+                            <img src="images/catalouge.jpg" alt="Catalogue avatar" class="member-avatar">
+                        </div>
+                        <h3 class="member-name">Catalogue</h3>
+                        <p class="member-role">Founder</p>
+                        <div class="member-bio">
+                            <p class="bio-quote">gotcha x_x</p>
+                            <a href="https://t.me/illusoryer" target="_blank" rel="noopener noreferrer" class="member-telegram-btn">
+                                <span>Telegram</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Purple Profile Detail -->
+                <div id="profile-purple" class="member-profile-detail">
+                    <div class="member-card">
+                        <div class="member-avatar-container">
+                            <img src="images/Purple.jpg" alt="Purple avatar" class="member-avatar">
+                        </div>
+                        <h3 class="member-name">Purple</h3>
+                        <p class="member-role">Co-Founder</p>
+                        <div class="member-bio">
+                            <p class="bio-quote">Purple is the only thing I can see &gt;_&lt;</p>
+                            <a href="https://t.me/xmrpuppy" target="_blank" rel="noopener noreferrer" class="member-telegram-btn">
+                                <span>Telegram</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FULL PAGE VIEW: PURPOSE -->
+    <div id="view-purpose" class="view-panel sub-page-view">
+        <div class="sub-page-header">
+            <button class="back-btn">&larr; [ back ]</button>
+        </div>
+        
+        <div class="sub-page-content">
+            <h2 class="sub-page-title">PURPOUSE</h2>
+            
+            <div class="purpose-container">
+                <p class="purpose-text">
+                    Fatal.sh is an elite cyber-security and digital defense collective established in 2026. Founded with a resolute commitment to combating online extortion, child exploitation, and modern digital threats, the group actively operates in the domains of cybersecurity, network vulnerability analysis, and exploit mitigation. Beyond counter-extortion operations, Fatal.sh specializes in researching exploit-related platforms, auditing security infrastructure, and securing vulnerable systems to neutralize digital threat actors.
+                </p>
+                <p class="purpose-motto">"Nothing is secure but some things are sacred."</p>
+            </div>
+        </div>
+
+        <!-- Swatted Sponsor Footer (ONLY in Purpose Tab) -->
+        <footer class="sponsor-footer">
+            <div class="sponsor-footer-title">SPONSORED BY</div>
+            <div class="sponsor-footer-links">
+                <a href="https://swattedw.tf" target="_blank" rel="noopener noreferrer" class="sponsor-footer-link">swattedw.tf</a>
+                <span class="sep">•</span>
+                <a href="https://t.me/Swattedwtf" target="_blank" rel="noopener noreferrer" class="sponsor-footer-link">t.me/Swattedwtf</a>
+            </div>
+            <p class="sponsor-note">We are proudly sponsored by Swatted, supporting digital safety, secure networking, and threat intelligence operations.</p>
+        </footer>
+    </div>
+
+    <!-- FULL PAGE VIEW: ARCHIVE -->
+    <div id="view-archive" class="view-panel sub-page-view">
+        <div class="sub-page-header">
+            <button class="back-btn">&larr; [ back ]</button>
+        </div>
+        
+        <div class="sub-page-content">
+            <h2 class="sub-page-title">ARCHIVE</h2>
+            
+            <div class="archive-list">
+                <!-- Log 1: Letoa Documented -->
+                <div class="archive-item">
+                    <div class="archive-header-row">
+                        <span class="archive-date">24-25.06.2026</span>
+                        <span class="archive-badge active">Documentation</span>
+                    </div>
+                    <h3 class="archive-item-title">letoa get documented</h3>
+                    <p class="archive-item-desc">Letoa get documented. Secure reference available via Telegram channel archive.</p>
+                    <a href="https://t.me/Fatalityxd/19" target="_blank" rel="noopener noreferrer" class="archive-link">
+                        <span>Reference Link</span>
+                    </a>
+                </div>
+
+                <!-- Log 2: Development Logs -->
+                <div class="archive-item">
+                    <div class="archive-header-row">
+                        <span class="archive-date">25.06.2026</span>
+                        <span class="archive-badge development">Development</span>
+                    </div>
+                    <h3 class="archive-item-title">target surveillance initiated</h3>
+                    <p class="archive-item-desc">Started research, development, and surveillance work on LorNWL, Asylum764, Arrest764, and Acheron1414 targets.</p>
+                </div>
+
+                <!-- Log 3: Establishment -->
+                <div class="archive-item">
+                    <div class="archive-header-row">
+                        <span class="archive-date">21-22.06.2026</span>
+                        <span class="archive-badge establishment">Establishment</span>
+                    </div>
+                    <h3 class="archive-item-title">fatal.sh opening log</h3>
+                    <p class="archive-item-desc">Our private collective Fatal.sh was officially established with a clean focus on cyber vigilance, anti-extortion campaigns, and fighting child abuse online.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
